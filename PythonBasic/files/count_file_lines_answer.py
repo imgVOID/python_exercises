@@ -24,11 +24,9 @@ def file_lengthy(path):
     """Функция с использованием enumerate(list)"""
     print('2)', file_lengthy.__doc__, end=':\n\n')
     with open(path, 'r') as f:
-        length = 0
         for index, line in enumerate(f.readlines()):
-            length = index + 1
             print(f'{index + 1} line:\n{line}', end='')
-        return length
+        return index + 1
 
 
 print("\nNumber of lines in the file:", file_lengthy("data/file.txt"), end='\n\n')
