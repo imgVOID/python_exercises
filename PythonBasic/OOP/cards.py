@@ -3,14 +3,17 @@ import random
 
 class CardDeck:
     # ** Опишите атрибут класса __slots__
-    def __init__(self):
+    def __init__(self, suits, values):
         self.__cards = []
-        self.__suites = {'Hearts', 'Diamonds', 'Clubs', 'Spades'}
-        self.__values = {'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'}
+        # {'Hearts', 'Diamonds', 'Clubs', 'Spades'}
+        self.__suits = suits
+        # {'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'}
+        self.__values = values
 
     # ** Определение строкового представления объекта
     def __repr__(self):
         # Используйте ', '.join(), также map(str, self.cards) либо генератор
+        # Возвращаемое значение: строка 'CardDeck(Card(x, y), Card(x, y))'
         pass
 
     # Определение метода индексации
@@ -62,14 +65,16 @@ class CardDeck:
         # random.shuffle()
         pass
 
-    # ** Определите сеттер:
+    # ** Определите сеттер, который добавляет переданную карту в колоду
+    # Для проверки на класс карты - сравните её базовый класс
+    # value.__class__.__bases__[0] с self (классом колоды карт)
     @property
     def cards(self):
         return self.__cards
 
     # ** Определите только геттеры:
     @property
-    def suites(self):
+    def suits(self):
         pass
 
     @property
@@ -89,16 +94,22 @@ class Card(CardDeck):
         else:
             # ** Проверки на валидность созданной карты
             try:
-                # Является ли объект колоды карт колодой карт для данной игры?
+                # Является ли переданный объект колодой карт для данной игры?
                 if not isinstance(self.card_deck, self.__class__.__bases__[0]):
                     raise TypeError('this is not a correct card deck')
                 # ** Допустима ли указанная масть для указанной колоды карт?
+                elif None:
+                    raise ValueError('wrong card suit')
                 # ** Допустимо ли указанное значение для указанной колоды карт?
+                elif None:
+                    raise ValueError('wrong card value')
                 # ** Есть ли уже такая карта в указанной колоде карт?
+                elif None:
+                    raise ValueError('deck cannot contain two copy of the card')
             except (ValueError, TypeError) as e:
                 print(e)
             else:
-                # Добавление валидной карты в колоду карт
+                # Добавление валидной карты в колоду карт (через сеттер)
                 self.card_deck.cards = self
 
     # ** Определение строкового представления объекта
