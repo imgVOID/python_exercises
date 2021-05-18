@@ -27,8 +27,8 @@ async def func_async():
 # Обязательно используйте запрет на выполнение в режиме модуля
 if __name__ == '__main__':
     func('Synchronous program start...')
-    # Напишите запуск задачи-корутины в цикле событий. Используйте asyncio.get_event_loop(),
-    # event_loop.run_until_complete(task) и event_loop.close()
+    # Напишите запуск корутины в цикле событий. Используйте asyncio.get_event_loop(),
+    # event_loop.run_until_complete(func_async())
     asyncio.get_event_loop().run_until_complete(func_async())
 
     # Напишите мультипотоковую программу. Используйте:
